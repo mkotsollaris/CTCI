@@ -153,7 +153,7 @@ public class BinaryTree<T extends Comparable<T>>
      *
      * @return queue: the queue with the Level Order
      */
-    public Queue<BinaryTreeNode<T>> levelOrderTraversal()
+    Queue<BinaryTreeNode<T>> levelOrderTraversal()
     {
         Queue<BinaryTreeNode<T>> queue = new Queue<>();
         Queue<BinaryTreeNode<T>> wantedQuery = new Queue<>();

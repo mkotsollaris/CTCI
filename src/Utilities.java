@@ -1,11 +1,11 @@
 /**
- * Created by Menelaos Kotsollaris on 2/26/2016.
- * Contact: mkotsollari@gmail.com
- * All rights Reserved.
- * <p>
- * Class Description:
+ * Created by Menelaos Kotsollaris on 2/26/2016. Contact: mkotsollari@gmail.com
+ * All rights Reserved. <p> Class Description:
  */
+
 import org.jetbrains.annotations.Contract;
+
+import java.lang.reflect.Array;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Utilities
@@ -18,9 +18,8 @@ public class Utilities
     }
 
     /**
-     * Checks if all the characters of the string are unique
-     * <p>
-     * Complexity: O(1), if we don't count the string length, else O(N)
+     * Checks if all the characters of the string are unique <p> Complexity:
+     * O(1), if we don't count the string length, else O(N)
      */
     public static boolean isUnique(String str)
     {
@@ -41,8 +40,7 @@ public class Utilities
         return true;
     }
 
-    @Contract(pure = true)
-    public static int getMax(int a, int b)
+    @Contract(pure = true) public static int getMax(int a, int b)
     {
         if(a > b)
         {
@@ -52,10 +50,9 @@ public class Utilities
     }
 
     /**
-     * Complexity: O(N)
-     * (if the collision rate is normal; depends on the HashFunction and the length of the Hashtable)
-     * <p>
-     * TODO TEST if logic is right for funding Permutations- SOS question
+     * Complexity: O(N) (if the collision rate is normal; depends on the
+     * HashFunction and the length of the Hashtable) <p> TODO TEST if logic is
+     * right for funding Permutations- SOS question
      */
     public static boolean isPermutation(String str1, String str2)
     {
@@ -97,20 +94,25 @@ public class Utilities
     /**
      * Palindrome is the string that reads the same backwards
      *
-     * e.g.: A but tuba
+     * e.g.: LongestPrefix but tuba
      *
      * More examples: http://www.palindromelist.net
-     * */
+     */
     public static boolean isPalindrome(String str)
     {
-        char[] specialCharactersArray = new char[]{' ', ',', '.', '!', '?', '\\', '/', '\'', '\"'}; //can be appended..
+        char[]
+                specialCharactersArray =
+                new char[]{' ', ',', '.', '!', '?', '\\', '/', '\'',
+                        '\"'}; //can be appended..
         int counter1 = 0;
         int counter2 = 0;
         int strLength = str.length();
         for(int i = 0; i < strLength / 2; i++)
         {
             char leftChar = Character.toLowerCase(str.charAt(i));
-            char rightChar = Character.toLowerCase(str.charAt(strLength - i - 1));
+            char
+                    rightChar =
+                    Character.toLowerCase(str.charAt(strLength - i - 1));
             //FIXME needs a While until it finds proper character.. (!= specialCharactersArray) do..while
             if(Utilities.contains(leftChar, specialCharactersArray))
             {
@@ -123,10 +125,13 @@ public class Utilities
                 counter2++;
             }
             leftChar = Character.toLowerCase(str.charAt(i + counter1));
-            rightChar = Character.toLowerCase(str.charAt(strLength - i - 1 + counter2));
+            rightChar =
+                    Character.toLowerCase(
+                            str.charAt(strLength - i - 1 + counter2));
             if(leftChar != rightChar)
             {
-                System.out.println(leftChar + ", not true vs: " + str.charAt(strLength - i - counter2 - 1));
+                System.out.println(leftChar + ", not true vs: " + str.charAt(
+                        strLength - i - counter2 - 1));
                 return false;
             }
         }
@@ -139,10 +144,10 @@ public class Utilities
      * @param charArray: char Array
      * @param character: character
      *
-     *  charArray contains character.
-     * */
-    @Contract(pure = true)
-    public static boolean contains(char character, char[] charArray)
+     *                   charArray contains character.
+     */
+    @Contract(pure = true) public static boolean contains(char character,
+                                                          char[] charArray)
     {
         boolean contains = false;
         for(char c : charArray)
@@ -156,13 +161,25 @@ public class Utilities
     }
 
     /**
-     * This is a declaration of the generic type in the method signature. For more:
-     * http://stackoverflow.com/questions/4209080/using-generic-types-in-a-static-context
+     * This is a declaration of the generic type in the method signature. For
+     * more: http://stackoverflow.com/questions/4209080/using-generic-types-in-a-static-context
      *
      * TODO
-     * */
-    public static <T> boolean binarySearch(T[] array, T element)
+     */
+    public static <T> boolean binarySearch(Comparable<T>[] array,
+                                           T element)
     {
+        if(array.length < 1) return false;
+        int middlePosition = array.length / 2;
+        if(array[middlePosition].compareTo(element) == 0) return true;
+        else if(array[middlePosition].compareTo(element) == -1)
+        {
+
+        }
+        else
+        {
+
+        }
         return false;
     }
 }
